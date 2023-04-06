@@ -69,7 +69,7 @@ Exemplo de resposta:
 ## O que será avaliado
 
 - Conhecimento de React
-- Conhecimento de CSS
+- Conhecimento de CSS (Fidelidade ao design)
 - Conhecimento de responsividade
 - Conhecimento de consumo de API
 
