@@ -19,7 +19,11 @@ Acesse o design do projeto no Figma: [GreenThumb Frontend Challenge](https://www
 
 ## API
 
-A API de produtos fictícios **GreenThumb** está disponível em: [GreenThumb API](https://front-br-challenges.web.app/api/v2/green-thumb/)
+A API de produtos fictícios **GreenThumb** está disponível em:
+
+```
+https://front-br-challenges.web.app/api/v2/green-thumb/
+```
 
 A API aceita os seguintes parâmetros:
 
