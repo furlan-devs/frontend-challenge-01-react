@@ -1,0 +1,16 @@
+:root {
+  --white: #fff;
+
+  --gray-200: #f2f2f2;
+  --green-700: #15573f;
+  --green-400: #75bc97;
+  --orange-400: #fd9872;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothin: antialiased;
+}
