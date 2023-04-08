@@ -1,9 +1,17 @@
-import logoWhite from './assets/icons/logo-white.svg'
-
-import './App.css'
+import "./App.css";
+import "./global.css";
+import { Header } from "./components/Header";
+import { Filters } from "./components/Filters";
 
 function App() {
-  return <img src={logoWhite} alt="Greenthumb" />
+  return (
+    <div>
+      <Header />
+      <main>
+        <Filters />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
