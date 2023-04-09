@@ -7,66 +7,54 @@ export const FiltersContainer = styled.section`
   justify-content: center;
 `;
 
-export const ResultsContainer = styled.section`
-  background-color: var(--gray-200);
-  display: flex;
-  justify-content: center;
-`;
-
 export const FiltersContent = styled.div`
-  max-width: 899px;
-  width: 899px;
-  margin-top: 57px;
-  margin-bottom: 53px;
+  max-width: 56.25rem;
+  width: 56.25rem;
+  margin-top: 3.56rem;
+  margin-bottom: 3.31rem;
   display: flex;
   align-items: center;
   background-color: yellow;
   justify-content: space-between;
 
-  @media (min-width: 600px) {
-    flex-direction: row;
+  @media (max-width: 657px) {
+    flex-direction: column;
+    gap: 3.125rem;
   }
-`;
 
-export const ResultsContent = styled.div`
-  max-width: 899px;
-  width: 899px;
-
-  display: flex;
-
-  min-height: 324px;
-`;
-
-export const NoResultsImg = styled.img`
-  width: 104.7px;
-  height: 203.27px;
-  margin-top: 52.84px;
+  @media (max-width: 900px) {
+    width: 45.25rem;
+  }
 `;
 
 export const Filter1 = styled.div`
   background-color: coral;
   display: flex;
   flex-direction: column;
-  width: 219px;
+  width: 13.68rem;
 
   img {
     width: 75px;
     height: 75px;
   }
   label {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 22px;
-    margin-bottom: 24px;
-    margin-top: 6px;
+    margin-bottom: 1.5rem;
+    margin-top: 0.25rem;
     color: #848484;
   }
 
   select {
     border: 1px solid #a8a8a8;
-    border-radius: 19px;
+    border-radius: 1.187rem;
     padding: 10px;
     :focus {
       outline: none;
+    }
+
+    @media (max-width: 657px) {
+      width: 15.56rem;
     }
   }
 `;
@@ -75,26 +63,29 @@ export const Filter2 = styled.div`
   background-color: coral;
   display: flex;
   flex-direction: column;
-  width: 219px;
+  width: 13.68rem;
 
   img {
     width: 103px;
     height: 75px;
   }
   label {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 22px;
-    margin-bottom: 24px;
-    margin-top: 6px;
+    margin-bottom: 1.5rem;
+    margin-top: 0.25rem;
     color: #848484;
   }
   select {
     border: 1px solid #a8a8a8;
     border-radius: 19px;
-    padding: 10px;
+    padding: 0.625rem;
 
     :focus {
       outline: none;
+    }
+    @media (max-width: 657px) {
+      width: 15.56rem;
     }
   }
 `;
@@ -102,50 +93,105 @@ export const Filter3 = styled.div`
   background-color: coral;
   display: flex;
   flex-direction: column;
-  width: 219px;
+  width: 13.68rem;
 
   img {
     margin-top: 9.5px;
-    width: 75px;
-    height: 62px;
+    width: 4.68rem;
+    height: 3.875rem;
   }
   label {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 22px;
-    margin-bottom: 24px;
-    margin-top: 9.5px;
+    margin-bottom: 1.5rem;
+    margin-top: 0.593rem;
     color: #848484;
   }
   select {
     border: 1px solid #a8a8a8;
     border-radius: 19px;
-    padding: 10px;
+    padding: 0.625rem;
 
     :focus {
       outline: none;
     }
+    @media (max-width: 657px) {
+      width: 15.56rem;
+    }
+  }
+`;
+
+export const ResultsContainer = styled.section`
+  background-color: var(--gray-200);
+  display: flex;
+  justify-content: center;
+`;
+
+export const ResultsContent = styled.div`
+  max-width: 56.25rem;
+  width: 56.25rem;
+  min-height: 20.25rem;
+`;
+
+export const NoResultsContainer = styled.div`
+  display: flex;
+
+  @media (max-width: 657px) {
+    display: block;
+    margin: 0 auto;
   }
 `;
 
 export const TextContent = styled.div`
   color: #a9a9a9;
-  margin-top: 74px;
+  margin-top: 4.625rem;
   display: flex;
   flex-direction: column;
   background-color: green;
+  width: 23.5rem;
+  margin-right: 11rem;
 
   h1 {
-    font-size: 45px;
+    font-size: 2.8125rem;
     font-weight: 700;
     line-height: 54.86px;
   }
 
   p {
-    width: 219px;
-    font-size: 16px;
+    width: 13.68rem;
+    margin-top: 0.3rem;
+
+    font-size: 1rem;
     font-weight: 400;
     line-height: 27px;
-    margin-right: 331px;
+    margin-right: 20.687rem;
+  }
+  @media (max-width: 657px) {
+    width: 15.5rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+`;
+
+export const NoResultsImg = styled.div`
+  margin-top: 3.3rem;
+
+  img {
+    width: 104px;
+    height: 203px;
+
+    @media (max-width: 657px) {
+      width: 85px;
+      height: 164px;
+    }
+  }
+
+  @media (max-width: 657px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.3rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -164,48 +210,91 @@ export const ResultsHeader = styled.div`
   img {
     width: 158px;
     height: 78px;
-    margin-top: 37px;
+    margin-top: 2.3125rem;
   }
   h1 {
     font-weight: 700;
-    font-size: 55px;
+    font-size: 3.4375rem;
     line-height: 67px;
     color: #0c261c;
-    margin-top: 20px;
-    margin-bottom: 54px;
+    margin-top: 1.25rem;
+    margin-bottom: 3.375rem;
+
+    @media (max-width: 657px) {
+      font-size: 2.5rem;
+      line-height: 49px;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 657px) {
+    width: 15.18rem;
+  }
+
+  @media (min-width: 658px) and (max-width: 900px) {
+    padding-left: 7rem;
   }
 `;
 
 export const ProductsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(206px, 1fr));
-  gap: 20px 25px;
+  gap: 1.25rem 1.5625rem;
   max-width: 100%;
+
+  @media (max-width: 657px) {
+    display: flex;
+    overflow-x: auto;
+    width: 258px;
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #eaeaea;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 10px;
+      width: 100px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #aaa;
+    }
+  }
 `;
 
 export const BackToTheTopButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 899px;
-  height: 50px;
+  width: 100%;
+  height: 3.125rem;
   border: 1px solid #15573f;
   border-radius: 25px;
   cursor: pointer;
-  margin-top: 59px;
-  margin-bottom: 128px;
+  margin-top: 3.68rem;
+  margin-bottom: 8rem;
 
   font-weight: 300;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 20px;
   color: #196146;
 
   ::before {
     content: "";
-    width: 22px;
-    height: 17px;
+    width: 1.375rem;
+    height: 1.0625rem;
     background-image: url(${arrowup});
     background-repeat: no-repeat;
-    margin-right: 17.5px;
+    margin-right: 1.09rem;
+  }
+
+  @media (max-width: 900px) {
+    width: 92%;
   }
 `;

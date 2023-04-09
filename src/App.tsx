@@ -6,8 +6,8 @@ import { Filters } from "./components/Filters";
 function App() {
   return (
     <div>
-      <Header />
-      <main>
+      {/* <Header /> */}
+      <main className="wrapper">
         <Filters />
       </main>
     </div>

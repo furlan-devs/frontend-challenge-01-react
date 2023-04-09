@@ -104,7 +104,7 @@ export const Filters = ({}: FiltersProps) => {
       <S.ResultsContainer>
         <S.ResultsContent>
           {!resultado ? (
-            <>
+            <S.NoResultsContainer>
               <S.TextContent>
                 <h1>No results yet...</h1>
                 <p>
@@ -112,14 +112,17 @@ export const Filters = ({}: FiltersProps) => {
                   environment :)
                 </p>
               </S.TextContent>
-              <S.NoResultsImg src="\src\assets\illustrations\no-results.png"></S.NoResultsImg>
-            </>
+              <S.NoResultsImg>
+                <img src="\src\assets\illustrations\no-results.png"></img>
+              </S.NoResultsImg>
+            </S.NoResultsContainer>
           ) : (
             <S.ResultsFound>
               <S.ResultsHeader>
                 <img src="\src\assets\illustrations\pick.png"></img>
                 <h1> Our picks for you</h1>
               </S.ResultsHeader>
+
               <S.ProductsWrapper>
                 {plantas.map((item, index) => (
                   <ProductItem
