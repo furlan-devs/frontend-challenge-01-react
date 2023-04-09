@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <Header />
-      <main className="wrapper">
+      <main>
         <Filters />
       </main>
     </div>

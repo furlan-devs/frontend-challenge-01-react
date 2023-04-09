@@ -15,7 +15,6 @@ export const Header: React.FC<HeaderProps> = ({}) => {
       <img src={right}></img> */}
       <S.HeaderContent>
         <img src={logoWhite} alt="Greenthumb" />
-
         <h1>Find your next green friend</h1>
         <img src={arrowdown} alt="Arrowdown" />
       </S.HeaderContent>

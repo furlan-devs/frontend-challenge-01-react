@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import left from "../../assets/hero/desktop/left-leaves.png";
-import mid from "../../assets/hero/desktop/plantperson.png";
-import right from "../../assets/hero/desktop/right-leaves.png";
 
 export const HeaderContainer = styled.header`
   height: 500px;

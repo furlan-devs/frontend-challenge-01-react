@@ -14,7 +14,6 @@ export const FiltersContent = styled.div`
   margin-bottom: 3.31rem;
   display: flex;
   align-items: center;
-  background-color: yellow;
   justify-content: space-between;
 
   @media (max-width: 657px) {
@@ -28,7 +27,6 @@ export const FiltersContent = styled.div`
 `;
 
 export const Filter1 = styled.div`
-  background-color: coral;
   display: flex;
   flex-direction: column;
   width: 13.68rem;
@@ -37,6 +35,7 @@ export const Filter1 = styled.div`
     width: 75px;
     height: 75px;
   }
+
   label {
     font-size: 0.875rem;
     line-height: 22px;
@@ -60,7 +59,6 @@ export const Filter1 = styled.div`
 `;
 
 export const Filter2 = styled.div`
-  background-color: coral;
   display: flex;
   flex-direction: column;
   width: 13.68rem;
@@ -89,8 +87,8 @@ export const Filter2 = styled.div`
     }
   }
 `;
+
 export const Filter3 = styled.div`
-  background-color: coral;
   display: flex;
   flex-direction: column;
   width: 13.68rem;
@@ -100,6 +98,7 @@ export const Filter3 = styled.div`
     width: 4.68rem;
     height: 3.875rem;
   }
+
   label {
     font-size: 0.875rem;
     line-height: 22px;
@@ -107,6 +106,7 @@ export const Filter3 = styled.div`
     margin-top: 0.593rem;
     color: #848484;
   }
+
   select {
     border: 1px solid #a8a8a8;
     border-radius: 19px;
@@ -122,7 +122,7 @@ export const Filter3 = styled.div`
 `;
 
 export const ResultsContainer = styled.section`
-  background-color: var(--gray-200);
+  background-color: #f6f6f6;
   display: flex;
   justify-content: center;
 `;
@@ -140,6 +140,10 @@ export const NoResultsContainer = styled.div`
     display: block;
     margin: 0 auto;
   }
+
+  @media (min-width: 658px) and (max-width: 900px) {
+    padding-left: 5.5rem;
+  }
 `;
 
 export const TextContent = styled.div`
@@ -147,7 +151,6 @@ export const TextContent = styled.div`
   margin-top: 4.625rem;
   display: flex;
   flex-direction: column;
-  background-color: green;
   width: 23.5rem;
   margin-right: 11rem;
 
@@ -166,6 +169,7 @@ export const TextContent = styled.div`
     line-height: 27px;
     margin-right: 20.687rem;
   }
+
   @media (max-width: 657px) {
     width: 15.5rem;
     margin-right: auto;
@@ -212,6 +216,7 @@ export const ResultsHeader = styled.div`
     height: 78px;
     margin-top: 2.3125rem;
   }
+
   h1 {
     font-weight: 700;
     font-size: 3.4375rem;
@@ -274,11 +279,12 @@ export const BackToTheTopButton = styled.button`
   align-items: center;
   width: 100%;
   height: 3.125rem;
-  border: 1px solid #15573f;
+  border: 1px solid var(--green-700);
   border-radius: 25px;
   cursor: pointer;
   margin-top: 3.68rem;
   margin-bottom: 8rem;
+  background-color: transparent;
 
   font-weight: 300;
   font-size: 1rem;

@@ -1,17 +1,10 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import * as S from "./styles";
-import { FiltersProps } from "./types";
+import { FiltersProps, Plantas } from "./types";
 import axios, { AxiosResponse } from "axios";
 import { ProductItem } from "./components/ProductItem";
 
-interface Plantas {
-  url: string;
-  id: number;
-  name: "string";
-  price: number;
-}
-
-export const Filters = ({}: FiltersProps) => {
+export const Filters: React.FC<FiltersProps> = ({}) => {
   const [plantas, setPlantas] = useState<Plantas[]>([]);
   const [sunOption, setSunOption] = useState<string>("");
   const [waterOption, setWaterOption] = useState<string>("");
