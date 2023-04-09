@@ -6,7 +6,7 @@ import { Filters } from "./components/Filters";
 function App() {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <main className="wrapper">
         <Filters />
       </main>

@@ -17,22 +17,40 @@ export const HeaderContainer = styled.header`
 
 export const HeaderContent = styled.div`
   position: absolute;
-  max-width: 899px;
-  width: 899px;
-  margin-top: 58.42px;
-  margin-bottom: 54px;
+  max-width: 56.25rem;
+  width: 56.25rem;
+  margin-top: 3.651rem;
+  margin-bottom: 3.375rem;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
 
+  @media (max-width: 900px) {
+    width: 45rem;
+  }
+
+  @media (min-width: 658px) and (max-width: 740px) {
+    width: 40rem;
+  }
+
+  @media (max-width: 657px) {
+    width: 14rem;
+  }
+
   h1 {
     color: var(--white);
-    margin-top: 41px;
-    margin-bottom: 26px;
-    width: 400px;
+    margin-top: 2.563rem;
+    margin-bottom: 1.625rem;
+    width: 25rem;
     font-weight: 700;
-    font-size: 70px;
+    font-size: 4.375rem;
     line-height: 85px;
+
+    @media (max-width: 657px) {
+      font-size: 2.5rem;
+      line-height: 49px;
+      width: 15rem;
+    }
   }
 
   img:nth-child(3) {

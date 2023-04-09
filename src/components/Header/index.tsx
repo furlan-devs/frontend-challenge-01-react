@@ -10,9 +10,9 @@ import { HeaderProps } from "./types";
 export const Header: React.FC<HeaderProps> = ({}) => {
   return (
     <S.HeaderContainer>
-      <img src={left}></img>
+      {/* <img src={left}></img>
       <img src={mid}></img>
-      <img src={right}></img>
+      <img src={right}></img> */}
       <S.HeaderContent>
         <img src={logoWhite} alt="Greenthumb" />
 
