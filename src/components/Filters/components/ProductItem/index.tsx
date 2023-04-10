@@ -8,14 +8,14 @@ export const ProductItem: React.FC<ProductItemProps> = ({
   imageUrl,
 }) => {
   return (
-    <S.Container>
+    <S.Container data-testid="product-item-container">
       <S.ImgContainer>
-        <S.Image src={imageUrl} alt={name} />
+        <S.Image src={imageUrl} alt={name} data-testid="product-item-image" />
       </S.ImgContainer>
-      <S.Name>{name}</S.Name>
+      <S.Name data-testid="product-item-name">{name}</S.Name>
       <S.DetailsContainer>
-        <S.Price>$ {price}</S.Price>
-        <div>
+        <S.Price data-testid="product-item-price">$ {price}</S.Price>
+        <div data-testid="product-item-icons">
           <img src="\src\assets\icons\pet.svg" alt="" />
           <img src="\src\assets\icons\toxic.svg" alt="" />
           <img src="\src\assets\icons\no-sun.svg" alt="" />

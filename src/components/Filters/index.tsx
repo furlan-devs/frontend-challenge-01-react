@@ -10,13 +10,11 @@ export const Filters: React.FC<FiltersProps> = ({}) => {
   const [waterOption, setWaterOption] = useState<string>("");
   const [petOption, setPetOption] = useState<string>("");
   const [resultado, setResultado] = useState<boolean>(false);
+  const apiUrl = import.meta.env.VITE_REACT_API_URL;
 
   useEffect(() => {
-    setTimeout(() => {}, 3000);
     axios
-      .get(
-        `https://front-br-challenges.web.app/api/v2/green-thumb/?sun=${sunOption}&water=${waterOption}&pets=${petOption}`
-      )
+      .get(`${apiUrl}?sun=${sunOption}&water=${waterOption}&pets=${petOption}`)
       .then((response: AxiosResponse<Plantas[]>) => {
         setPlantas(response.data);
         setResultado(true);
