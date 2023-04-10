@@ -51,10 +51,6 @@ export const Filter1 = styled.div`
     :focus {
       outline: none;
     }
-
-    @media (max-width: 657px) {
-      width: 15.56rem;
-    }
   }
 `;
 
@@ -81,9 +77,6 @@ export const Filter2 = styled.div`
 
     :focus {
       outline: none;
-    }
-    @media (max-width: 657px) {
-      width: 15.56rem;
     }
   }
 `;
@@ -114,9 +107,6 @@ export const Filter3 = styled.div`
 
     :focus {
       outline: none;
-    }
-    @media (max-width: 657px) {
-      width: 15.56rem;
     }
   }
 `;
