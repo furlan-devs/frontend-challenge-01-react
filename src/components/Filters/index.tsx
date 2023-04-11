@@ -3,6 +3,7 @@ import * as S from "./styles";
 import { FiltersProps, Plantas } from "./types";
 import axios, { AxiosResponse } from "axios";
 import { ProductItem } from "./components/ProductItem";
+import { Filter } from "./components/FIlter";
 
 export const Filters: React.FC<FiltersProps> = ({}) => {
   const [plantas, setPlantas] = useState<Plantas[]>([]);
@@ -40,55 +41,72 @@ export const Filters: React.FC<FiltersProps> = ({}) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const sunlightSelectOption = [
+    { value: "no", label: "No sun" },
+    { value: "low", label: "Low" },
+    { value: "high", label: "High" },
+  ];
+
+  const waterSelectOptions = [
+    { value: "regularly", label: "Regularly" },
+    { value: "daily", label: "Daily" },
+    { value: "rarely", label: "Rarely" },
+  ];
+
+  const petsSelectOptions = [
+    { value: "true", label: "Yes" },
+    { value: "false", label: "No" },
+  ];
+
+  const textLabelforSunlight = (
+    <>
+      <strong>1.</strong> Set the amount of <strong>sunlight</strong> your plant
+      will get.
+    </>
+  );
+
+  const textLabelforWater = (
+    <>
+      <strong>2.</strong> How often do you want to <strong>water</strong> your
+      plant?
+    </>
+  );
+  const textLabelforPets = (
+    <>
+      <strong>3.</strong> Do you have pets? Do they <strong>chew</strong>{" "}
+      plants?
+    </>
+  );
+
   return (
     <>
       <S.FiltersContainer>
         <S.FiltersContent>
-          <S.Filter1>
-            <img src="\src\assets\illustrations\sun.png"></img>
-            <label htmlFor="">
-              <strong>1.</strong> Set the amount of <strong>sunlight</strong>{" "}
-              your plant will get.
-            </label>
-            <select value={sunOption} onChange={handleSunOptionChange}>
-              <option value="" disabled selected>
-                Select...
-              </option>
-              <option value="no">No sun</option>
-              <option value="low">Low</option>
-              <option value="high">High</option>
-            </select>
-          </S.Filter1>
-          <S.Filter2>
-            <img src="\src\assets\illustrations\wateringcan.png"></img>
-            <label htmlFor="">
-              <strong>2.</strong> How often do you want to{" "}
-              <strong>water</strong> your plant?
-            </label>
-            <select value={waterOption} onChange={handleWaterOptionChange}>
-              <option value="" disabled selected>
-                Select...
-              </option>
-              <option value="regularly">Regularly</option>
-              <option value="daily">Daily</option>
-              <option value="rarely">Rarely</option>
-            </select>
-          </S.Filter2>
+          <Filter
+            imgUrl="\src\assets\illustrations\sun.png"
+            textLabel={textLabelforSunlight}
+            selectOptions={sunlightSelectOption}
+            placeholder="Select..."
+            onChange={handleSunOptionChange}
+            selectValue={sunOption}
+          />
+          <Filter
+            imgUrl="\src\assets\illustrations\wateringcan.png"
+            textLabel={textLabelforWater}
+            selectOptions={waterSelectOptions}
+            placeholder="Select..."
+            onChange={handleWaterOptionChange}
+            selectValue={waterOption}
+          />
 
-          <S.Filter3>
-            <img src="\src\assets\illustrations\dog.png"></img>
-            <label htmlFor="">
-              <strong>3.</strong> Do you have pets? Do they{" "}
-              <strong>chew</strong> plants?
-            </label>
-            <select value={petOption} onChange={handlePetOptionChange}>
-              <option value="" disabled selected>
-                Select...
-              </option>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
-          </S.Filter3>
+          <Filter
+            imgUrl="\src\assets\illustrations\dog.png"
+            textLabel={textLabelforPets}
+            selectOptions={petsSelectOptions}
+            placeholder="Select..."
+            onChange={handlePetOptionChange}
+            selectValue={petOption}
+          />
         </S.FiltersContent>
       </S.FiltersContainer>
 
