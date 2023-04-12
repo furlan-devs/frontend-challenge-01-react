@@ -15,6 +15,7 @@ export const FilterContent = styled.div`
   }
 
   select {
+    color: #333;
     border: 1px solid #a8a8a8;
     border-radius: 20px;
     padding: 10px;

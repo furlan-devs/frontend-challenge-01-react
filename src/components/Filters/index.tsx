@@ -1,28 +1,33 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import * as S from "./styles";
-import { FiltersProps, Plantas } from "./types";
-import axios, { AxiosResponse } from "axios";
+import { FiltersProps } from "./types";
 import { ProductItem } from "./components/ProductItem";
 import { Filter } from "./components/FIlter";
+import { Plant, fetchPlants } from "../../services/FetchPlants";
+import { Loading } from "../Loading";
 
 export const Filters: React.FC<FiltersProps> = ({}) => {
-  const [plantas, setPlantas] = useState<Plantas[]>([]);
+  const [plantas, setPlantas] = useState<Plant[]>([]);
   const [sunOption, setSunOption] = useState<string>("");
   const [waterOption, setWaterOption] = useState<string>("");
   const [petOption, setPetOption] = useState<string>("");
-  const [resultado, setResultado] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const apiUrl = import.meta.env.VITE_REACT_API_URL;
 
   useEffect(() => {
-    axios
-      .get(`${apiUrl}?sun=${sunOption}&water=${waterOption}&pets=${petOption}`)
-      .then((response: AxiosResponse<Plantas[]>) => {
-        setPlantas(response.data);
-        setResultado(true);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    async function getPlants() {
+      if (sunOption && waterOption && petOption) {
+        setLoading(true);
+        const fetchedPlants = await fetchPlants(
+          sunOption,
+          waterOption,
+          petOption
+        );
+        setLoading(false);
+        setPlantas(fetchedPlants);
+      }
+    }
+    getPlants();
   }, [sunOption, waterOption, petOption]);
 
   const handleSunOptionChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -39,6 +44,7 @@ export const Filters: React.FC<FiltersProps> = ({}) => {
 
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    console.log(plantas);
   };
 
   const sunlightSelectOption = [
@@ -80,6 +86,7 @@ export const Filters: React.FC<FiltersProps> = ({}) => {
 
   return (
     <>
+      {loading && <Loading />}
       <S.FiltersContainer>
         <S.FiltersContent>
           <Filter
@@ -109,10 +116,9 @@ export const Filters: React.FC<FiltersProps> = ({}) => {
           />
         </S.FiltersContent>
       </S.FiltersContainer>
-
       <S.ResultsContainer>
         <S.ResultsContent>
-          {!resultado ? (
+          {!plantas.length ? (
             <S.NoResultsContainer>
               <S.TextContent>
                 <h1>No results yet...</h1>
@@ -139,7 +145,8 @@ export const Filters: React.FC<FiltersProps> = ({}) => {
                     imageUrl={item.url}
                     name={item.name}
                     price={item.price}
-                  />
+                    icons={[item.sun, item.water, item.toxicity]}
+                  ></ProductItem>
                 ))}
               </S.ProductsWrapper>
 

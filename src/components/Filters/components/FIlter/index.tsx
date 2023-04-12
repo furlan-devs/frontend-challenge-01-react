@@ -16,7 +16,7 @@ export const Filter: React.FC<FilterProps> = ({
       </S.ImageContainer>
       <p>{textLabel}</p>
       <select value={selectValue} onChange={onChange}>
-        <option value="" disabled selected>
+        <option value="" disabled defaultValue={""}>
           {placeholder}
         </option>
         {selectOptions.map((option) => (
