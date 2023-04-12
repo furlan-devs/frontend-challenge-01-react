@@ -24,7 +24,7 @@ export async function fetchPlants(
     );
     return response.data;
   } catch (error) {
-    console.error(error, "API erro");
+    console.error(error, "This search returned no data.");
     return [];
   }
 }

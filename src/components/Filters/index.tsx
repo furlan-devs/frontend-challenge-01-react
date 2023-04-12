@@ -5,6 +5,7 @@ import { ProductItem } from "./components/ProductItem";
 import { Filter } from "./components/FIlter";
 import { Plant, fetchPlants } from "../../services/FetchPlants";
 import { Loading } from "../Loading";
+import { FavoriteItem } from "./components/ProductItem/FavoriteItem";
 
 export const Filters: React.FC<FiltersProps> = ({}) => {
   const [plantas, setPlantas] = useState<Plant[]>([]);
@@ -12,7 +13,7 @@ export const Filters: React.FC<FiltersProps> = ({}) => {
   const [waterOption, setWaterOption] = useState<string>("");
   const [petOption, setPetOption] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const apiUrl = import.meta.env.VITE_REACT_API_URL;
+  const [sortedPlantas, setSortedPlantas] = useState<Plant[]>([]);
 
   useEffect(() => {
     async function getPlants() {
@@ -29,6 +30,17 @@ export const Filters: React.FC<FiltersProps> = ({}) => {
     }
     getPlants();
   }, [sunOption, waterOption, petOption]);
+
+  useEffect(() => {
+    const sortedPlants = plantas.sort((itemA, itemB) => {
+      if (itemA.staff_favorite && !itemB.staff_favorite) {
+        return -1; // Verifica se itemA deve vir antes de itemB, se sim => -1
+      } else !itemA.staff_favorite && itemB.staff_favorite;
+      return 1; // Verifica se itemA deve vir depois de itemB, se sim => 1
+    });
+
+    setSortedPlantas(sortedPlants);
+  }, [plantas]);
 
   const handleSunOptionChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSunOption(event.target.value);
@@ -139,15 +151,25 @@ export const Filters: React.FC<FiltersProps> = ({}) => {
               </S.ResultsHeader>
 
               <S.ProductsWrapper>
-                {plantas.map((item, index) => (
-                  <ProductItem
-                    key={item.id}
-                    imageUrl={item.url}
-                    name={item.name}
-                    price={item.price}
-                    icons={[item.sun, item.water, item.toxicity]}
-                  ></ProductItem>
-                ))}
+                {sortedPlantas.map((item, index) =>
+                  item.staff_favorite ? (
+                    <FavoriteItem
+                      key={item.id}
+                      imageUrl={item.url}
+                      name={item.name}
+                      price={item.price}
+                      icons={[item.sun, item.water, item.toxicity]}
+                    ></FavoriteItem>
+                  ) : (
+                    <ProductItem
+                      key={item.id}
+                      imageUrl={item.url}
+                      name={item.name}
+                      price={item.price}
+                      icons={[item.sun, item.water, item.toxicity]}
+                    ></ProductItem>
+                  )
+                )}
               </S.ProductsWrapper>
 
               <S.BackToTheTopButton onClick={handleClick}>
